@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackitallproj/utils/firebase_utils.dart';
 
 import '../app_theme.dart';
 
@@ -15,10 +16,13 @@ class HomeDrawer extends StatefulWidget {
 
 class _HomeDrawerState extends State<HomeDrawer> {
   List<DrawerList> drawerList;
+  FirebaseUtils _firebaseUtils;
+
   @override
   void initState() {
     setDrawerListArray();
     super.initState();
+    _firebaseUtils = new FirebaseUtils();
   }
 
   void setDrawerListArray() {
@@ -155,7 +159,11 @@ class _HomeDrawerState extends State<HomeDrawer> {
                   Icons.power_settings_new,
                   color: Colors.red,
                 ),
-                onTap: () {},
+                onTap: () async {
+                  await _firebaseUtils.logout().then((value) {
+                    Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
+                  });
+                },
               ),
               SizedBox(
                 height: MediaQuery.of(context).padding.bottom,
