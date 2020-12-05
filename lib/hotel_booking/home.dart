@@ -6,16 +6,16 @@ import 'package:hackitallproj/hotel_booking/hotel_home_screen.dart';
 import '../icons.dart';
 
 
-class HomeHome extends StatefulWidget {
+class Home extends StatefulWidget {
 
   final Map data;
-  HomeHome({ this.data });
+  Home({ this.data });
 
   @override
-  _HomeHomeState createState() => _HomeHomeState();
+  _HomeState createState() => _HomeState();
 }
 
-class _HomeHomeState extends State<HomeHome> {
+class _HomeState extends State<Home> {
   int _currentIndex = 0;
   PageController _pageController;
 

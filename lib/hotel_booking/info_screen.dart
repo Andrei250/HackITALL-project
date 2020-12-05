@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hackitallproj/hotel_booking/model/hotel_list_data.dart';
 import 'design_course_app_theme.dart';
 
 class InfoScreen extends StatefulWidget {
+
+  InfoScreen({this.data});
+
+  HotelListData data;
+
   @override
   _InfoScreenState createState() => _InfoScreenState();
 }
@@ -95,7 +101,7 @@ class _InfoScreenState extends State<InfoScreen>
                             padding: const EdgeInsets.only(
                                 top: 32.0, left: 18, right: 16),
                             child: Text(
-                              'Web Design\nCourse',
+                              widget.data.titleTxt,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
