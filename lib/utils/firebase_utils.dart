@@ -26,4 +26,25 @@ class FirebaseUtils {
     Future logout() async {
       return await _auth.signOut();
     }
+
+    Future getUserInfo() async {
+      String uid = _auth.currentUser.uid;
+      return await _db.collection('users').doc(uid).get();
+    }
+
+    Future updateProfile(String firstName, String lastName) async {
+      String uid = await _auth.currentUser.uid;
+      Map<String, dynamic> mp = new Map<String, dynamic>();
+      mp['first_name'] = firstName;
+      mp['last_name'] = lastName;
+
+      if (uid != null) {
+        try {
+          return await _db.collection('users').doc(uid).set(mp);
+        } on FirebaseException catch (e) {
+          print(e.stackTrace);
+        }
+      }
+
+    }
 }
