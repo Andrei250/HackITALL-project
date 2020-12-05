@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hackitallproj/hotel_booking/home.dart';
+import 'package:hackitallproj/hotel_booking/hotel_home_screen.dart';
 import 'package:hackitallproj/routes.dart';
 import 'app_theme.dart';
 import 'hotel_booking/hotel_home_screen.dart';
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
       ),
-      home: NavigationHomeScreen(),
+      home: HomeHome(),
     );
   }
 }

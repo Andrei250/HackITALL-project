@@ -2,7 +2,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
-import 'calendar_popup_view.dart';
 import 'filters_screen.dart';
 import 'hotel_app_theme.dart';
 import 'hotel_list_view.dart';
@@ -71,7 +70,6 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                 return Column(
                                   children: <Widget>[
                                     getSearchBarUI(),
-                                    getTimeDateUI(),
                                   ],
                                 );
                               }, childCount: 1),
@@ -202,7 +200,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
     );
   }
 
-  Widget getTimeDateUI() {
+ /* Widget getTimeDateUI() {
     return Padding(
       padding: const EdgeInsets.only(left: 18, bottom: 16),
       child: Row(
@@ -225,7 +223,6 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                       // setState(() {
                       //   isDatePopupOpen = true;
                       // });
-                      showDemoDialog(context: context);
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(
@@ -318,7 +315,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
         ],
       ),
     );
-  }
+  }*/
 
   Widget getSearchBarUI() {
     return Padding(
@@ -491,28 +488,6 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
     );
   }
 
-  void showDemoDialog({BuildContext context}) {
-    showDialog<dynamic>(
-      context: context,
-      builder: (BuildContext context) => CalendarPopupView(
-        barrierDismissible: true,
-        minimumDate: DateTime.now(),
-        //  maximumDate: DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 10),
-        initialEndDate: endDate,
-        initialStartDate: startDate,
-        onApplyClick: (DateTime startData, DateTime endData) {
-          setState(() {
-            if (startData != null && endData != null) {
-              startDate = startData;
-              endDate = endData;
-            }
-          });
-        },
-        onCancelClick: () {},
-      ),
-    );
-  }
-
   Widget getAppBarUI() {
     return Container(
       decoration: BoxDecoration(
@@ -552,7 +527,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
             Expanded(
               child: Center(
                 child: Text(
-                  'Explore',
+                  'Rooms',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 22,
@@ -567,35 +542,9 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(32.0),
-                      ),
-                      onTap: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(Icons.favorite_border),
-                      ),
-                    ),
-                  ),
-                  Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(32.0),
-                      ),
-                      onTap: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(FontAwesomeIcons.mapMarkerAlt),
-                      ),
-                    ),
-                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
