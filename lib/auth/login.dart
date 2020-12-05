@@ -129,13 +129,19 @@ class _LoginState extends State<Login> {
 
               if (result == null) {
                 setState(() {
-                  errorFirstText = 'Email-ul sau parola incorecta!';
-                  errorSecondText = 'Email-ul sau parola incorecta!';
+                  errorFirstText = 'Incorrect credentials';
+                  errorSecondText = 'Incorrect credentials';
                 });
               } else {
-                Navigator.of(context).pushNamedAndRemoveUntil(
-                    result['route'], (route) => false,
-                    arguments: result);
+                if (result['error'] != null) {
+                  setState(() {
+                    errorFirstText = result['error'];
+                    errorSecondText = '';
+                  });
+                } else {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/info_screen', (route) => false);
+                }
               }
             }
           },
