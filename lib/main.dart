@@ -2,13 +2,17 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hackitallproj/auth/login.dart';
+import 'package:hackitallproj/routes.dart';
 import 'app_theme.dart';
+import 'hotel_booking/hotel_home_screen.dart';
 import 'navigation_home_screen.dart';
 
 void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
   theme: AppTheme.darkTheme,
   home: Login(),
+  // initialRoute: '/',
+  onGenerateRoute: Routing.generateRoute,
 ));
 
 
