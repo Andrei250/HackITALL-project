@@ -119,7 +119,7 @@ class _InfoScreenState extends State<InfoScreen>
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 Text(
-                                  '\$28.99',
+                                  widget.data.participants.toString(),
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w200,

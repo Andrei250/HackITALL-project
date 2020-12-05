@@ -19,9 +19,6 @@ class Routing {
       case '/login':
         return CustomRoute(builder: (_) => Login());
         break;
-      case '/home':
-        return CustomRoute(builder: (_) => Home());
-        break;
       default:
         return null;
     }
