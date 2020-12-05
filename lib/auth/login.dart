@@ -140,7 +140,7 @@ class _LoginState extends State<Login> {
                   });
                 } else {
                   Navigator.of(context).pushNamedAndRemoveUntil(
-                      '/home', (route) => false);
+                      '/home_page', (route) => false);
                 }
               }
             }
