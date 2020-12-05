@@ -13,8 +13,9 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   FirebaseUtils firebaseUtils;
-  String firstName;
-  String lastName;
+  String firstName = "";
+  String lastName = "";
+  ButtonState stateTextWithIcon = ButtonState.idle;
 
   void getData() async {
       await firebaseUtils.getUserInfo().then((mp) {
@@ -29,8 +30,6 @@ class _ProfileState extends State<Profile> {
   void initState() {
     super.initState();
     firebaseUtils = new FirebaseUtils();
-    firstName = "";
-    lastName = "";
     getData();
   }
 
@@ -65,6 +64,7 @@ class _ProfileState extends State<Profile> {
                     left: 64,
                     right: 64),
                 child: TextFormField(
+                  key: Key(firstName),
                   initialValue: firstName,
                   onChanged: (val) { firstName = val; },
                   style: TextStyle(color: Colors.black, fontSize: 20),
@@ -81,6 +81,7 @@ class _ProfileState extends State<Profile> {
                     left: 64,
                     right: 64),
                 child: TextFormField(
+                  key: Key(lastName),
                   initialValue: lastName,
                   onChanged: (val) {lastName = val;},
                   style: TextStyle(color: Colors.black, fontSize: 20),
@@ -118,9 +119,26 @@ class _ProfileState extends State<Profile> {
                       color: Colors.green.shade400)
                   },
                   onPressed: () async {
-                      await firebaseUtils.updateProfile(firstName, lastName);
+                      setState(() {
+                        stateTextWithIcon = ButtonState.loading;
+                      });
+
+                      await firebaseUtils.updateProfile(firstName, lastName).then((value) {
+                        Future.delayed(Duration(seconds: 1), () {
+                          setState(() {
+                            stateTextWithIcon = ButtonState.success;
+                          });
+                        }).then((value) {
+                          Future.delayed(Duration(seconds: 1), () {
+                            setState(() {
+                              stateTextWithIcon = ButtonState.idle;
+                            });
+                          });
+                        });
+                      });
+
                   },
-                  state: ButtonState.idle
+                  state: stateTextWithIcon
                 ),
               ),
 
