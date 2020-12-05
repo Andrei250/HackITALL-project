@@ -11,7 +11,7 @@ import 'navigation_home_screen.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:  NavigationHomeScreen(),
+      home:  Login(),
       theme: AppTheme.darkTheme,
       // initialRoute: '/',
       onGenerateRoute: Routing.generateRoute,
