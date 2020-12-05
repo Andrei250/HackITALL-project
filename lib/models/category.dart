@@ -15,7 +15,7 @@ class Category {
 
   static List<Category> categoryList = <Category>[
     Category(
-      imagePath: 'assets/design_course/interFace1.png',
+      imagePath: 'assets/design_course/interFace1.jpg',
       title: 'User interface Design',
       lessonCount: 24,
       money: 25,

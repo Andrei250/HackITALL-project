@@ -65,4 +65,18 @@ class FirebaseUtils {
 
       return snapshot.docs.map((doc) => doc.data()).toList();
     }
+
+    Future getPersons() async {
+      var snapshot = await _db.collection("users").get();
+
+      return snapshot.docs.map((doc) {
+        Map<String, dynamic> mp = new Map<String, dynamic>();
+        doc.data().forEach((key, value) {
+          mp[key] = value;
+        });
+
+        mp['uid'] = doc.id;
+        return mp;
+      }).toList();
+    }
 }
