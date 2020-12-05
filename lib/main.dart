@@ -10,7 +10,7 @@ import 'navigation_home_screen.dart';
 
 void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
-  home: HomeHome(),
+  home: NavigationHomeScreen(),
   // initialRoute: '/',
   onGenerateRoute: Routing.generateRoute,
 ));
