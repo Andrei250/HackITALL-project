@@ -67,21 +67,21 @@ class AppTheme {
       ),
       buttonColor: lightColor,
     ),
-    inputDecorationTheme: InputDecorationTheme(
-      enabledBorder: new OutlineInputBorder(
-        borderRadius: new BorderRadius.circular(25.0),
-        borderSide: BorderSide(
-          color: AppTheme.primaryVariantColor,
-        ),
-      ),
-      focusedBorder: new OutlineInputBorder(
-        borderRadius: new BorderRadius.circular(25.0),
-        borderSide: BorderSide(
-          color: AppTheme.lightColor,
-          width: 1.5,
-        ),
-      ),
-    ),
+    // inputDecorationTheme: InputDecorationTheme(
+    //   enabledBorder: new OutlineInputBorder(
+    //     borderRadius: new BorderRadius.circular(25.0),
+    //     borderSide: BorderSide(
+    //       color: AppTheme.primaryVariantColor,
+    //     ),
+    //   ),
+    //   focusedBorder: new OutlineInputBorder(
+    //     borderRadius: new BorderRadius.circular(25.0),
+    //     borderSide: BorderSide(
+    //       color: AppTheme.lightColor,
+    //       width: 1.5,
+    //     ),
+    //   ),
+    // ),
   );
 
   static const Color notWhite = Color(0xFFEDF0F2);
@@ -284,7 +284,7 @@ final eTextField = TextStyle(
 );
 
 final eName = TextStyle(
-color: Colors.grey[500],
-fontFamily: 'quicksand',
-fontSize: 20.0,
+  color: Colors.grey[500],
+  fontFamily: 'quicksand',
+  fontSize: 20.0,
 );
