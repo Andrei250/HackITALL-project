@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hackitallproj/components/input_text_field.dart';
 import 'package:hackitallproj/utils/firebase_utils.dart';
@@ -10,7 +11,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final FirebaseUtils _auth = FirebaseUtils();
+  FirebaseUtils _auth;
 
   String password;
   String email;
@@ -19,10 +20,17 @@ class _LoginState extends State<Login> {
   String errorSecondText;
   bool _loading;
 
+  void initFirebase() async {
+    await Firebase.initializeApp().then((value) {
+      _auth = new FirebaseUtils();
+    });
+  }
+
+  @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _loading = false;
+    initFirebase();
   }
 
   ScrollController _scrollController = ScrollController();

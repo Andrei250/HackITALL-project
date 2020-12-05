@@ -6,7 +6,6 @@ class FirebaseUtils {
     FirebaseAuth _auth = FirebaseAuth.instance;
     FirebaseFirestore _db = FirebaseFirestore.instance;
 
-
     Future login(String email, String password) async {
       Map<String, String> mp = new Map<String, String>();
 

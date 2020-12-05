@@ -5,15 +5,12 @@ import 'package:hackitallproj/auth/login.dart';
 import 'app_theme.dart';
 import 'navigation_home_screen.dart';
 
-void main() async {
-  void main() => runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme: AppTheme.darkTheme,
-    home: Login(),
-    // initialRoute: '/loading',
-    // onGenerateRoute: Routing.generateRoute,
-  ));
-}
+void main() => runApp(MaterialApp(
+  debugShowCheckedModeBanner: false,
+  theme: AppTheme.darkTheme,
+  home: Login(),
+));
+
 
 class MyApp extends StatelessWidget {
   @override
