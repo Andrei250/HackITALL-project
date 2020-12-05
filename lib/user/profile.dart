@@ -15,21 +15,50 @@ class _ProfileState extends State<Profile> {
   FirebaseUtils firebaseUtils;
   String firstName = "";
   String lastName = "";
+  String department = "";
   ButtonState stateTextWithIcon = ButtonState.idle;
+  String dropdownValue = "--";
+  List<DropdownMenuItem<String>> dropdownItems = <String>['--']
+                                                      .map<DropdownMenuItem<String>>((String value) {
+                                                    return DropdownMenuItem<String>(
+                                                      value: value,
+                                                      child: Text(value),
+                                                    );
+                                                  }).toList();
 
   void getData() async {
       await firebaseUtils.getUserInfo().then((mp) {
         setState(() {
           firstName = mp['first_name'];
           lastName = mp['last_name'];
+          dropdownValue = mp['department'];
         });
       });
+  }
+
+  void getDepartments() async {
+    await firebaseUtils.getDepartments().then((mp) {
+      List<String> lst = new List<String>();
+      lst.add("--");
+      mp.forEach((el) {
+        lst.add(el['name']);
+      });
+
+      dropdownValue = "--";
+      dropdownItems = lst.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList();
+    });
   }
 
   @override
   void initState() {
     super.initState();
     firebaseUtils = new FirebaseUtils();
+    getDepartments();
     getData();
   }
 
@@ -92,6 +121,24 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
 
+              DropdownButton<String>(
+                value: dropdownValue,
+                icon: Icon(Icons.arrow_downward),
+                iconSize: 24,
+                elevation: 16,
+                style: TextStyle(color: Colors.black),
+                underline: Container(
+                  height: 2,
+                  color: Colors.black,
+                ),
+                onChanged: (String newValue) {
+                  setState(() {
+                    dropdownValue = newValue;
+                  });
+                },
+                items: dropdownItems,
+              ),
+
               Padding(
                 padding: EdgeInsets.only(
                     top: 48,
@@ -123,7 +170,7 @@ class _ProfileState extends State<Profile> {
                         stateTextWithIcon = ButtonState.loading;
                       });
 
-                      await firebaseUtils.updateProfile(firstName, lastName).then((value) {
+                      await firebaseUtils.updateProfile(firstName, lastName, dropdownValue).then((value) {
                         Future.delayed(Duration(seconds: 1), () {
                           setState(() {
                             stateTextWithIcon = ButtonState.success;

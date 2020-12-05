@@ -29,14 +29,27 @@ class FirebaseUtils {
 
     Future getUserInfo() async {
       String uid = _auth.currentUser.uid;
-      return await _db.collection('users').doc(uid).get();
+      var mp = await _db.collection('users').doc(uid).get();
+      Map<String, dynamic> ans = new Map<String, dynamic>();
+
+      mp.data().forEach((key, value) {ans[key] = value;});
+
+      if (!ans.containsKey('department')) {
+        ans['department'] = "--";
+      }
+
+      return ans;
     }
 
-    Future updateProfile(String firstName, String lastName) async {
+    Future updateProfile(String firstName, String lastName, String department) async {
       String uid = await _auth.currentUser.uid;
       Map<String, dynamic> mp = new Map<String, dynamic>();
       mp['first_name'] = firstName;
       mp['last_name'] = lastName;
+
+      if (department != "--") {
+        mp['department'] = department;
+      }
 
       if (uid != null) {
         try {
@@ -45,6 +58,11 @@ class FirebaseUtils {
           print(e.stackTrace);
         }
       }
+    }
 
+    Future getDepartments() async {
+      var snapshot = await _db.collection("departments").get();
+
+      return snapshot.docs.map((doc) => doc.data()).toList();
     }
 }
