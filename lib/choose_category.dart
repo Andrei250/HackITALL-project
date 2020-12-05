@@ -4,16 +4,17 @@ import 'design_course_app_theme.dart';
 import 'main.dart';
 import 'models/category.dart';
 
-class PopularCourseListView extends StatefulWidget {
-  const PopularCourseListView({Key key, this.callBack}) : super(key: key);
+class ChooseCategory extends StatefulWidget {
+  const ChooseCategory({Key key, this.callBack, this.category}) : super(key: key);
 
   final Function callBack;
+  final String category;
 
   @override
-  _PopularCourseListViewState createState() => _PopularCourseListViewState();
+  _ChooseCategoryState createState() => _ChooseCategoryState();
 }
 
-class _PopularCourseListViewState extends State<PopularCourseListView>
+class _ChooseCategoryState extends State<ChooseCategory>
     with TickerProviderStateMixin {
   AnimationController animationController;
 
@@ -31,6 +32,19 @@ class _PopularCourseListViewState extends State<PopularCourseListView>
 
   @override
   Widget build(BuildContext context) {
+    int len = 0;
+    if (widget.category == 'game') {
+      len = Category.gamesList.length;
+    } else if (widget.category == 'conference') {
+      len = Category.conferenceRooms.length;
+    } else if (widget.category == 'office') {
+      len = Category.officeRooms.length;
+    } else if (widget.category == 'coffee') {
+      len = Category.coffeeRooms.length;
+    }
+
+
+
     return Padding(
       padding: const EdgeInsets.only(top: 8),
       child: FutureBuilder<bool>(
@@ -44,14 +58,13 @@ class _PopularCourseListViewState extends State<PopularCourseListView>
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.vertical,
               children: List<Widget>.generate(
-                Category.popularCourseList.length,
-                (int index) {
-                  final int count = Category.popularCourseList.length;
+                len,
+                    (int index) {
                   final Animation<double> animation =
-                      Tween<double>(begin: 0.0, end: 1.0).animate(
+                  Tween<double>(begin: 0.0, end: 1.0).animate(
                     CurvedAnimation(
                       parent: animationController,
-                      curve: Interval((1 / count) * index, 1.0,
+                      curve: Interval((1 / len) * index, 1.0,
                           curve: Curves.fastOutSlowIn),
                     ),
                   );
@@ -60,7 +73,14 @@ class _PopularCourseListViewState extends State<PopularCourseListView>
                     callback: () {
                       widget.callBack();
                     },
-                    category: Category.popularCourseList[index],
+                    category: widget.category == 'game' ? Category
+                        .gamesList[index]
+                        : widget.category == 'office' ? Category
+                        .officeRooms[index]
+                        : widget.category == 'conference' ? Category
+                        .conferenceRooms[index]
+                        : widget.category == 'coffee' ? Category
+                        .coffeeRooms[index] : null,
                     animation: animation,
                     animationController: animationController,
                   );
@@ -81,12 +101,11 @@ class _PopularCourseListViewState extends State<PopularCourseListView>
 }
 
 class CategoryView extends StatelessWidget {
-  const CategoryView(
-      {Key key,
-      this.category,
-      this.animationController,
-      this.animation,
-      this.callback})
+  const CategoryView({Key key,
+    this.category,
+    this.animationController,
+    this.animation,
+    this.callback})
       : super(key: key);
 
   final VoidCallback callback;
@@ -155,13 +174,14 @@ class CategoryView extends StatelessWidget {
                                                 bottom: 8),
                                             child: Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                              MainAxisAlignment
+                                                  .spaceBetween,
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                               children: <Widget>[
                                                 Text(
-                                                  '${category.lessonCount} users online',
+                                                  '${category
+                                                      .lessonCount} users online',
                                                   textAlign: TextAlign.left,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w200,
@@ -194,11 +214,11 @@ class CategoryView extends StatelessWidget {
                     Container(
                       child: Padding(
                         padding:
-                            const EdgeInsets.only(top: 24, right: 16, left: 16),
+                        const EdgeInsets.only(top: 24, right: 16, left: 16),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius:
-                                const BorderRadius.all(Radius.circular(16.0)),
+                            const BorderRadius.all(Radius.circular(16.0)),
                             boxShadow: <BoxShadow>[
                               BoxShadow(
                                   color: DesignCourseAppTheme.grey
@@ -209,7 +229,7 @@ class CategoryView extends StatelessWidget {
                           ),
                           child: ClipRRect(
                             borderRadius:
-                                const BorderRadius.all(Radius.circular(16.0)),
+                            const BorderRadius.all(Radius.circular(16.0)),
                             child: AspectRatio(
                                 aspectRatio: 1.28,
                                 child: Image.asset(category.imagePath)),
