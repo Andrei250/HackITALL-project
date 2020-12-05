@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hackitallproj/models/Person.dart';
+import 'package:hackitallproj/utils/firebase_utils.dart';
 
 import '../app_theme.dart';
 
@@ -38,7 +40,10 @@ class _PersonCardState extends State<PersonCard> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   IconButton(
-                    onPressed: () {
+                    onPressed: () async {
+                      await FirebaseUtils().getUserInfo().then((mp) async {
+                        await FirebaseUtils().addNotification(mp['first_name'] + " " + mp['last_name'], widget.person.uid);
+                      });
                     },
                     icon: Icon(Icons.add, color: Colors.black,),
                   ),
