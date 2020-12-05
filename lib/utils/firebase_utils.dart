@@ -22,4 +22,8 @@ class FirebaseUtils {
 
       return mp;
     }
+
+    Future logout() async {
+      return await _auth.signOut();
+    }
 }
