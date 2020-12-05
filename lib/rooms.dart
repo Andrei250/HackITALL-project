@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hackitallproj/choose_category.dart';
 import 'package:hackitallproj/games_list_view.dart';
 import 'package:hackitallproj/hotel_booking/info_screen.dart';
-import 'package:hackitallproj/popular_course_list_view.dart';
 import 'design_course_app_theme.dart';
 import 'hotel_booking/hotel_app_theme.dart';
 import 'hotel_booking/model/hotel_list_data.dart';
@@ -60,12 +60,16 @@ class _RoomsState extends State<Rooms> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Flexible(
-            child: GameListView(
+            child: ChooseCategory(
               callBack: () {
                 Navigator.of(context)
                     .pushNamed('/info_screen', arguments: widget.data);
               },
+              category: widget.data.category,
             ),
+          ),
+          SizedBox(
+            height: 100,
           )
         ],
       ),
