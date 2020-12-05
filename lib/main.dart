@@ -5,7 +5,6 @@ import 'package:hackitallproj/auth/login.dart';
 import 'package:hackitallproj/custom_drawer/home_drawer.dart';
 import 'package:hackitallproj/routes.dart';
 import 'app_theme.dart';
-import 'hotel_booking/home.dart';
 import 'hotel_booking/hotel_home_screen.dart';
 import 'navigation_home_screen.dart';
 
