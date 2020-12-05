@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hackitallproj/auth/login.dart';
+import 'package:hackitallproj/custom_drawer/home_drawer.dart';
 import 'package:hackitallproj/routes.dart';
 import 'app_theme.dart';
 import 'hotel_booking/home.dart';
@@ -10,11 +11,12 @@ import 'navigation_home_screen.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home:  NavigationHomeScreen(),
       theme: AppTheme.darkTheme,
       // initialRoute: '/',
       onGenerateRoute: Routing.generateRoute,
-    ));
+    )
+);
 
 class MyApp extends StatelessWidget {
   @override

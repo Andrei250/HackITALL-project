@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackitallproj/hotel_booking/hotel_home_screen.dart';
 import 'app_theme.dart';
 import 'custom_drawer/drawer_user_controller.dart';
 import 'custom_drawer/home_drawer.dart';
@@ -19,7 +20,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
   @override
   void initState() {
     drawerIndex = DrawerIndex.HOME;
-    screenView = const MyHomePage();
+    screenView = HotelHomeScreen();
     super.initState();
   }
 
