@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
-
+import 'package:hackitallproj/routes.dart';
 import 'hotel_app_theme.dart';
 import 'model/hotel_list_data.dart';
 
@@ -35,7 +35,10 @@ class HotelListView extends StatelessWidget {
               child: InkWell(
                 splashColor: Colors.transparent,
                 onTap: () {
+                  Navigator.of(context).pushNamed('/info_screen');
+
                   callback();
+                //  TODO add routes here
                 },
                 child: Container(
                   decoration: BoxDecoration(
