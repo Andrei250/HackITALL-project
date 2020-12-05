@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hackitallproj/games_list_view.dart';
 import 'package:hackitallproj/hotel_booking/info_screen.dart';
 import 'package:hackitallproj/popular_course_list_view.dart';
 import 'design_course_app_theme.dart';
@@ -59,7 +60,7 @@ class _RoomsState extends State<Rooms> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Flexible(
-            child: PopularCourseListView(
+            child: GameListView(
               callBack: () {
                 Navigator.of(context)
                     .pushNamed('/info_screen', arguments: widget.data);

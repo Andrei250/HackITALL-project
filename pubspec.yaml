@@ -39,6 +39,8 @@ dependencies:
   flutter_svg: ^0.18.0
   progress_state_button: ^1.0.2
   url_launcher: ^5.4.2
+  googleapis: ^0.55.0
+  googleapis_auth: ^0.2.12
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +64,7 @@ flutter:
     - assets/fitness_app/
     - assets/hotel/
     - assets/icons/
+    - assets/games/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
