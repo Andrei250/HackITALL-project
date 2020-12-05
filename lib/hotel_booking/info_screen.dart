@@ -120,7 +120,6 @@ class _InfoScreenState extends State<InfoScreen>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-
                               ],
                             ),
                           ),
