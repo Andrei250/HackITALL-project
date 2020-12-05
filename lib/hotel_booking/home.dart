@@ -2,14 +2,12 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hackitallproj/hotel_booking/hotel_home_screen.dart';
-
+import 'package:hackitallproj/app_theme.dart';
 import '../icons.dart';
+import 'hotel_app_theme.dart';
 
 
 class Home extends StatefulWidget {
-
-  final Map data;
-  Home({ this.data });
 
   @override
   _HomeState createState() => _HomeState();
@@ -35,7 +33,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavyBar(
-        backgroundColor: Color.fromRGBO(255, 205, 255, 0),
+        backgroundColor: AppTheme.nearlyWhite,
         selectedIndex: _currentIndex,
         showElevation: true,
         itemCornerRadius: 25,
@@ -54,11 +52,11 @@ class _HomeState extends State<Home> {
               home,
               height: 30,
               width: 30,
-              color: Color.fromRGBO(155, 255, 255, 1),
+              color: HotelAppTheme.buildLightTheme().primaryColor,
             ),
             title: Text('Acasa',),
-            activeColor: Color.fromRGBO(155, 255, 255, 1),
-            inactiveColor: Color.fromRGBO(155, 255, 255, 1),
+            activeColor: AppTheme.lightText,
+            inactiveColor: AppTheme.lightText,
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
@@ -66,11 +64,11 @@ class _HomeState extends State<Home> {
               list,
               height: 30,
               width: 30,
-              color: Color.fromRGBO(155, 255, 255, 1),
+              color: HotelAppTheme.buildLightTheme().primaryColor,
             ),
             title: Text('Produse', ),
-            activeColor:Color.fromRGBO(155, 255, 255, 1),
-            inactiveColor: Color.fromRGBO(155, 255, 255, 1),
+            activeColor: AppTheme.grey,
+            inactiveColor: AppTheme.lightText,
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
@@ -78,11 +76,11 @@ class _HomeState extends State<Home> {
               box,
               height: 30,
               width: 30,
-              color: Color.fromRGBO(155, 255, 255, 1),
+              color: HotelAppTheme.buildLightTheme().primaryColor,
             ),
             title: Text('Stoc', ),
-            activeColor:Color.fromRGBO(255, 255, 255, 1),
-            inactiveColor: Color.fromRGBO(255, 255, 255, 1),
+            activeColor:AppTheme.grey,
+            inactiveColor: AppTheme.lightText,
             textAlign: TextAlign.center,
           )
         ],
