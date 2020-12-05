@@ -20,7 +20,7 @@ class Routing {
         return CustomRoute(builder: (_) => Login());
         break;
       case '/home':
-        return CustomRoute(builder: (_) => HomeHome());
+        return CustomRoute(builder: (_) => Home());
         break;
       default:
         return null;
