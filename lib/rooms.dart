@@ -21,7 +21,7 @@ class _RoomsState extends State<Rooms> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: DesignCourseAppTheme.nearlyWhite,
+      color: const Color(0xFCF6F6F6),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Column(
@@ -78,7 +78,8 @@ class _RoomsState extends State<Rooms> {
         children: <Widget>[
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(right: 16, top: 8, bottom: 8),
+              padding:
+                  const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
               child: Container(
                 decoration: BoxDecoration(
                   color: HotelAppTheme.buildLightTheme().backgroundColor,
@@ -178,11 +179,14 @@ class _RoomsState extends State<Rooms> {
               ),
             ],
           ),
-          Container(
-            width: 60,
-            height: 60,
-            child: Image.asset('assets/design_course/userImage.png'),
-          )
+          ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(60.0)),
+            child: Container(
+              width: 50,
+              height: 50,
+              child: Image.asset('assets/images/userImage.png'),
+            ),
+          ),
         ],
       ),
     );
