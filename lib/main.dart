@@ -9,8 +9,8 @@ import 'navigation_home_screen.dart';
 
 void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
+  home: HomeHome(),
   theme: AppTheme.darkTheme,
-  home: Login(),
   // initialRoute: '/',
   onGenerateRoute: Routing.generateRoute,
 ));
@@ -27,16 +27,6 @@ class MyApp extends StatelessWidget {
       systemNavigationBarDividerColor: Colors.grey,
       systemNavigationBarIconBrightness: Brightness.dark,
     ));
-    return MaterialApp(
-      title: 'Flutter UI',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        textTheme: AppTheme.textTheme,
-        platform: TargetPlatform.iOS,
-      ),
-      home: NavigationHomeScreen(),
-    );
   }
 }
 
