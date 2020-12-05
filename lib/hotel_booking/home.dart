@@ -7,13 +7,13 @@ import '../icons.dart';
 import 'hotel_app_theme.dart';
 
 
-class HomeHome extends StatefulWidget {
+class Home extends StatefulWidget {
 
   @override
-  _HomeHomeState createState() => _HomeHomeState();
+  _HomeState createState() => _HomeState();
 }
 
-class _HomeHomeState extends State<HomeHome> {
+class _HomeState extends State<Home> {
   int _currentIndex = 0;
   PageController _pageController;
 
