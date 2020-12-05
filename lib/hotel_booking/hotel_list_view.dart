@@ -35,7 +35,7 @@ class HotelListView extends StatelessWidget {
                 splashColor: Colors.transparent,
                 onTap: () {
                   Navigator.of(context)
-                      .pushNamed('/info_screen', arguments: hotelData);
+                      .pushNamed('/rooms', arguments: hotelData);
                   callback();
                 },
                 child: Container(
