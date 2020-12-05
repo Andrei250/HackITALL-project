@@ -5,13 +5,12 @@ import 'package:hackitallproj/auth/login.dart';
 import 'package:hackitallproj/custom_drawer/home_drawer.dart';
 import 'package:hackitallproj/routes.dart';
 import 'app_theme.dart';
-import 'hotel_booking/home.dart';
 import 'hotel_booking/hotel_home_screen.dart';
 import 'navigation_home_screen.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:  NavigationHomeScreen(),
+      home:  Login(),
       theme: AppTheme.darkTheme,
       // initialRoute: '/',
       onGenerateRoute: Routing.generateRoute,
