@@ -1,14 +1,17 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hackitallproj/routes.dart';
 import 'app_theme.dart';
+import 'hotel_booking/hotel_home_screen.dart';
 import 'navigation_home_screen.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations(<DeviceOrientation>[DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
-      .then((_) => runApp(MyApp()));
-}
+void main() => runApp(MaterialApp(
+  debugShowCheckedModeBanner: false,
+  home: HotelHomeScreen(),
+  // initialRoute: '/',
+  onGenerateRoute: Routing.generateRoute,
+));
 
 class MyApp extends StatelessWidget {
   @override
