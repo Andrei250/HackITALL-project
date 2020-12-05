@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hackitallproj/hotel_booking/model/hotel_list_data.dart';
 import 'design_course_app_theme.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class InfoScreen extends StatefulWidget {
 
@@ -118,41 +120,11 @@ class _InfoScreenState extends State<InfoScreen>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                Text(
-                                  '\$28.99',
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w200,
-                                    fontSize: 22,
-                                    letterSpacing: 0.27,
-                                    color: DesignCourseAppTheme.nearlyBlue,
-                                  ),
-                                ),
-                                Container(
-                                  child: Row(
-                                    children: <Widget>[
-                                      Text(
-                                        '4.3',
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w200,
-                                          fontSize: 22,
-                                          letterSpacing: 0.27,
-                                          color: DesignCourseAppTheme.grey,
-                                        ),
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        color: DesignCourseAppTheme.nearlyBlue,
-                                        size: 24,
-                                      ),
-                                    ],
-                                  ),
-                                )
+
                               ],
                             ),
                           ),
-                          AnimatedOpacity(
+                          /*AnimatedOpacity(
                             duration: const Duration(milliseconds: 500),
                             opacity: opacity1,
                             child: Padding(
@@ -165,7 +137,7 @@ class _InfoScreenState extends State<InfoScreen>
                                 ],
                               ),
                             ),
-                          ),
+                          ),*/
                           Expanded(
                             child: AnimatedOpacity(
                               duration: const Duration(milliseconds: 500),
@@ -198,59 +170,48 @@ class _InfoScreenState extends State<InfoScreen>
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
-                                  Container(
-                                    width: 48,
-                                    height: 48,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: DesignCourseAppTheme.nearlyWhite,
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(16.0),
-                                        ),
-                                        border: Border.all(
-                                            color: DesignCourseAppTheme.grey
-                                                .withOpacity(0.2)),
-                                      ),
-                                      child: Icon(
-                                        Icons.add,
-                                        color: DesignCourseAppTheme.nearlyBlue,
-                                        size: 28,
-                                      ),
-                                    ),
-                                  ),
                                   const SizedBox(
                                     width: 16,
                                   ),
                                   Expanded(
-                                    child: Container(
-                                      height: 48,
-                                      decoration: BoxDecoration(
-                                        color: DesignCourseAppTheme.nearlyBlue,
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(16.0),
-                                        ),
-                                        boxShadow: <BoxShadow>[
-                                          BoxShadow(
-                                              color: DesignCourseAppTheme
-                                                  .nearlyBlue
-                                                  .withOpacity(0.5),
-                                              offset: const Offset(1.1, 1.1),
-                                              blurRadius: 10.0),
-                                        ],
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          'Join Course',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 18,
-                                            letterSpacing: 0.0,
-                                            color: DesignCourseAppTheme
-                                                .nearlyWhite,
+                                    child: InkWell(
+                                      child: Container(
+
+                                        height: 48,
+
+                                        decoration: BoxDecoration(
+                                          color: DesignCourseAppTheme.nearlyBlue,
+                                          borderRadius: const BorderRadius.all(
+                                            Radius.circular(16.0),
                                           ),
+                                          boxShadow: <BoxShadow>[
+                                            BoxShadow(
+                                                color: DesignCourseAppTheme
+                                                    .nearlyBlue
+                                                    .withOpacity(0.5),
+                                                offset: const Offset(1.1, 1.1),
+                                                blurRadius: 10.0),
+                                          ],
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            'Join Meeting',
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 18,
+                                              letterSpacing: 0.0,
+                                              color: DesignCourseAppTheme
+                                                  .nearlyWhite,
+                                            ),
+
+                                          ),
+
                                         ),
                                       ),
+                                      onTap: () {
+                                        _launchURL();
+                                      },
                                     ),
                                   )
                                 ],
@@ -279,17 +240,6 @@ class _InfoScreenState extends State<InfoScreen>
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50.0)),
                   elevation: 10.0,
-                  child: Container(
-                    width: 60,
-                    height: 60,
-                    child: Center(
-                      child: Icon(
-                        Icons.favorite,
-                        color: DesignCourseAppTheme.nearlyWhite,
-                        size: 30,
-                      ),
-                    ),
-                  ),
                 ),
               ),
             ),
@@ -368,3 +318,13 @@ class _InfoScreenState extends State<InfoScreen>
     );
   }
 }
+
+_launchURL() async {
+  const url = 'https://meet.google.com/sut-zsxz-rwb';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
