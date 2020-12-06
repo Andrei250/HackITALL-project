@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hackitallproj/components/NotificationCard.dart';
+import 'package:hackitallproj/models/notification.dart';
 import 'package:hackitallproj/utils/firebase_utils.dart';
 
 import '../app_theme.dart';
@@ -10,12 +12,17 @@ class Notifications extends StatefulWidget {
 }
 
 class _NotificationsState extends State<Notifications> {
-  List<Notification> lst = new List<Notification>();
+  List<NotificationModel> lst = new List<NotificationModel>();
   FirebaseUtils firebaseUtils = new FirebaseUtils();
 
   void getNotifications() async {
     await firebaseUtils.getNotifications().then((mp) {
-      print(mp);
+      setState(() {
+        mp.forEach((el) {
+          NotificationModel notification = new NotificationModel(text: el['text'], sender: el['sender'], route: el['route']);
+          lst.add(notification);
+        });
+      });
     });
   }
 
@@ -24,9 +31,18 @@ class _NotificationsState extends State<Notifications> {
     return Scaffold(
       backgroundColor: AppTheme.lightColor,
       body: Padding(
-        padding: EdgeInsets.only(left: 8.0, top: 30.0, right: 8.0),
-        child: Column(
-
+        padding: EdgeInsets.only(left: 8.0, top: 50.0, right: 8.0),
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          children: [
+            ListView.builder(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              itemCount: lst.length,
+              itemBuilder: (context, index) =>  NotificationCard(not: lst[index]),
+            ),
+          ],
         ),
       ),
     );

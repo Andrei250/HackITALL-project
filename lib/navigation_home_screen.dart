@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackitallproj/hotel_booking/hotel_home_screen.dart';
+import 'package:hackitallproj/user/notifications.dart';
 import 'package:hackitallproj/user/profile.dart';
 import 'app_theme.dart';
 import 'custom_drawer/drawer_user_controller.dart';
@@ -62,7 +63,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         });
       } else if (drawerIndex == DrawerIndex.FeedBack) {
         setState(() {
-          screenView = FeedbackScreen();
+          screenView = Notifications();
         });
       } else if (drawerIndex == DrawerIndex.Invite) {
         setState(() {
