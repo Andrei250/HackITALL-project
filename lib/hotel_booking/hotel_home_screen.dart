@@ -349,7 +349,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                     cursorColor: HotelAppTheme.buildLightTheme().primaryColor,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Office...',
+                      hintText: 'Search...',
                     ),
                   ),
                 ),
