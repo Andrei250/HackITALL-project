@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hackitallproj/components/input_text_field.dart';
+import 'package:hackitallproj/hotel_booking/hotel_app_theme.dart';
 import 'package:hackitallproj/utils/firebase_utils.dart';
 
 import '../app_theme.dart';
@@ -56,7 +57,7 @@ class _LoginState extends State<Login> {
     void verifyEmail() {
       if (email == null) {
         setState(() {
-          errorFirstText = 'Introduceti adresa de email!';
+          errorFirstText = 'Enter your email address!';
         });
       } else {
         setState(() {
@@ -68,7 +69,7 @@ class _LoginState extends State<Login> {
     void verifyPassword() {
       if (password == null) {
         setState(() {
-          errorSecondText = 'Introduceti parola!';
+          errorSecondText = 'Enter your password!';
         });
       } else {
         setState(() {
@@ -92,7 +93,7 @@ class _LoginState extends State<Login> {
             preferredSize: Size(double.infinity, 1.0),
             child: LinearProgressIndicator(
               valueColor:
-              AlwaysStoppedAnimation<Color>(AppTheme.lightAccent),
+              AlwaysStoppedAnimation<Color>(HotelAppTheme.buildLightTheme().primaryColor),
             ),
           )
               : null,
@@ -103,12 +104,12 @@ class _LoginState extends State<Login> {
           ),
         ),
         floatingActionButton: new RaisedButton(
-          color: AppTheme.lightAccent,
+          color: HotelAppTheme.buildLightTheme().primaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25.0),
           ),
           child: Text(
-            'Inainte',
+            'Next',
             style: eButton,
           ),
           onPressed: () async {
@@ -161,7 +162,7 @@ class _LoginState extends State<Login> {
                         height: 30.0,
                       ),
                       SizedBox(
-                        child: Text('Intra in cont', style: eTitle),
+                        child: Text('Log in', style: eTitle),
                       ),
                       SizedBox(
                         height: 20.0,
@@ -185,7 +186,7 @@ class _LoginState extends State<Login> {
                           width: 320.0,
                           height: 88.0,
                           child: InputTextField(
-                            label: 'Parola',
+                            label: 'Password',
                             passwordText: true,
                             inputType: TextInputType.text,
                             changeValue: changePassword,

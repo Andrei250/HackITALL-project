@@ -144,7 +144,7 @@ class _InfoScreenState extends State<InfoScreen>
                               child: Padding(
                                 padding: const EdgeInsets.only(
                                     left: 16, right: 16, top: 8, bottom: 8),
-                                child: Text(
+                                child: Text(widget.data.titleTxt +
                                   'Lorem ipsum is simply dummy text of printing & typesetting industry, Lorem ipsum is simply dummy text of printing & typesetting industry.',
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
@@ -319,7 +319,7 @@ class _InfoScreenState extends State<InfoScreen>
 }
 
 _launchURL() async {
-  const url = 'https://meet.google.com/sut-zsxz-rwb';
+  const url = 'https://meet.google.com/yor-xipd-hpo';
   if (await canLaunch(url)) {
     await launch(url);
   } else {

@@ -13,38 +13,38 @@ class Category {
   double rating;
   String imagePath;
 
-  static List<Category> categoryList = <Category>[
+  static List<Category> officeRooms = <Category>[
     Category(
       imagePath: 'assets/design_course/interFace1.jpg',
-      title: 'User interface Design',
+      title: 'Room #1',
       lessonCount: 24,
       money: 25,
       rating: 4.3,
     ),
     Category(
       imagePath: 'assets/design_course/interFace2.png',
-      title: 'User interface Design',
+      title: 'Room #2',
       lessonCount: 22,
       money: 18,
       rating: 4.6,
     ),
     Category(
       imagePath: 'assets/design_course/interFace1.png',
-      title: 'User interface Design',
-      lessonCount: 24,
+      title: 'Room #3',
+      lessonCount: 14,
       money: 25,
       rating: 4.3,
     ),
     Category(
       imagePath: 'assets/design_course/interFace2.png',
-      title: 'User interface Design',
-      lessonCount: 22,
+      title: 'Room #4',
+      lessonCount: 32,
       money: 18,
       rating: 4.6,
     ),
   ];
 
-  static List<Category> popularCourseList = <Category>[
+  static List<Category> conferenceRooms = <Category>[
     Category(
       imagePath: 'assets/design_course/interFace3.png',
       title: 'Room #1',
@@ -55,7 +55,7 @@ class Category {
     Category(
       imagePath: 'assets/design_course/interFace4.png',
       title: 'Room #2',
-      lessonCount: 28,
+      lessonCount: 27,
       money: 208,
       rating: 4.9,
     ),
@@ -76,18 +76,19 @@ class Category {
     Category(
       imagePath: 'assets/design_course/interFace3.png',
       title: 'Room #5',
-      lessonCount: 28,
+      lessonCount: 22,
       money: 208,
       rating: 4.9,
     ),
     Category(
       imagePath: 'assets/design_course/interFace4.png',
       title: 'Room #6',
-      lessonCount: 28,
+      lessonCount: 34,
       money: 208,
       rating: 4.9,
     ),
   ];
+
 
   static List<Category> gamesList = <Category>[
     Category(
@@ -100,14 +101,14 @@ class Category {
     Category(
       imagePath: 'assets/games/tictactoe.jpg',
       title: 'Tic Tac Toe',
-      lessonCount: 28,
+      lessonCount: 7,
       money: 208,
       rating: 4.9,
     ),
     Category(
       imagePath: 'assets/games/agar.png',
       title: 'Agar.io',
-      lessonCount: 28,
+      lessonCount: 8,
       money: 208,
       rating: 4.9,
     ),
@@ -121,21 +122,21 @@ class Category {
     Category(
       imagePath: 'assets/games/pubg.jpg',
       title: 'PUBG',
-      lessonCount: 28,
+      lessonCount: 16,
       money: 208,
       rating: 4.9,
     ),
     Category(
       imagePath: 'assets/games/tank.jpg',
       title: 'Tank Stars',
-      lessonCount: 28,
+      lessonCount: 13,
       money: 208,
       rating: 4.9,
     ),
     Category(
       imagePath: 'assets/games/hole.png',
       title: 'Hole.io',
-      lessonCount: 28,
+      lessonCount: 14,
       money: 208,
       rating: 4.9,
     ),
@@ -145,6 +146,37 @@ class Category {
       lessonCount: 12,
       money: 25,
       rating: 4.8,
+    ),
+  ];
+
+  static List<Category> coffeeRooms = <Category>[
+    Category(
+      imagePath: 'assets/games/gaming.jpg',
+      title: 'Gaming',
+      lessonCount: 22,
+      money: 25,
+      rating: 4.8,
+    ),
+    Category(
+      imagePath: 'assets/games/movie.jpg',
+      title: 'Movies',
+      lessonCount: 12,
+      money: 208,
+      rating: 4.9,
+    ),
+    Category(
+      imagePath: 'assets/games/music.jpg',
+      title: 'Music',
+      lessonCount: 14,
+      money: 208,
+      rating: 4.9,
+    ),
+    Category(
+      imagePath: 'assets/games/gossip.jpg',
+      title: 'Gossip',
+      lessonCount: 18,
+      money: 208,
+      rating: 4.9,
     ),
   ];
 }

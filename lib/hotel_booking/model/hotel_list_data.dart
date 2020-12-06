@@ -7,11 +7,13 @@ class HotelListData {
     this.reviews = 80,
     this.rating = 4.5,
     this.participants = 180,
+    this.category = '',
   });
 
   String imagePath;
   String titleTxt;
   String subTxt;
+  String category;
   double dist;
   double rating;
   int reviews;
@@ -19,40 +21,40 @@ class HotelListData {
 
   static List<HotelListData> hotelList = <HotelListData>[
     HotelListData(
-      imagePath: 'assets/hotel/office.jpg',
-      titleTxt: 'Office Room',
-      subTxt: 'Open space office',
-      dist: 2.0,
-      reviews: 80,
-      rating: 4.4,
-      participants: 180,
-    ),
+        imagePath: 'assets/hotel/office.jpg',
+        titleTxt: 'Office Room',
+        subTxt: 'Open space office',
+        dist: 2.0,
+        reviews: 80,
+        rating: 4.4,
+        participants: 180,
+        category: 'office'),
     HotelListData(
-      imagePath: 'assets/hotel/conference.jpg',
-      titleTxt: 'Conference Room',
-      subTxt: 'Confernce Room #1',
-      dist: 4.0,
-      reviews: 74,
-      rating: 4.5,
-      participants: 200,
-    ),
+        imagePath: 'assets/hotel/conference.jpg',
+        titleTxt: 'Conference Room',
+        subTxt: 'Confernce Room #1',
+        dist: 4.0,
+        reviews: 74,
+        rating: 4.5,
+        participants: 200,
+        category: 'conference'),
     HotelListData(
-      imagePath: 'assets/hotel/game.jpg',
-      titleTxt: 'Game Room',
-      subTxt: 'Game Room #1',
-      dist: 3.0,
-      reviews: 62,
-      rating: 4.0,
-      participants: 60,
-    ),
+        imagePath: 'assets/hotel/game.jpg',
+        titleTxt: 'Game Room',
+        subTxt: 'Game Room #1',
+        dist: 3.0,
+        reviews: 62,
+        rating: 4.0,
+        participants: 60,
+        category: 'game'),
     HotelListData(
-      imagePath: 'assets/hotel/kitchen.jpg',
-      titleTxt: 'Coffee Room',
-      subTxt: 'Coffee Room #1',
-      dist: 7.0,
-      reviews: 90,
-      rating: 4.4,
-      participants: 170,
-    ),
+        imagePath: 'assets/hotel/kitchen.jpg',
+        titleTxt: 'Coffee Room',
+        subTxt: 'Coffee Room #1',
+        dist: 7.0,
+        reviews: 90,
+        rating: 4.4,
+        participants: 170,
+        category: 'coffee'),
   ];
 }
