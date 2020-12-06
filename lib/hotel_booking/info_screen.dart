@@ -143,7 +143,7 @@ class _InfoScreenState extends State<InfoScreen> with TickerProviderStateMixin {
                                 padding: const EdgeInsets.only(
                                     left: 16, right: 16, top: 8, bottom: 8),
                                 child: Text(
-                                      'Welcome to ${widget.data.titleTxt}!',
+                                      'Welcome ${widget.data.titleTxt}!',
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w200,
