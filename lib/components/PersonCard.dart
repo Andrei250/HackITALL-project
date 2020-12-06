@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hackitallproj/models/Person.dart';
+import 'package:hackitallproj/utils/firebase_utils.dart';
 
 import '../app_theme.dart';
+import '../hotel_booking/hotel_app_theme.dart';
 
 class PersonCard extends StatefulWidget {
   Person person;
@@ -19,6 +22,9 @@ class _PersonCardState extends State<PersonCard> {
     return Container(
       child: Column(
         children: <Widget>[
+          SizedBox(
+            height: 10,
+          ),
           Row(
             children: <Widget>[
               Padding(
@@ -38,14 +44,25 @@ class _PersonCardState extends State<PersonCard> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   IconButton(
-                    onPressed: () {
+                     onPressed: () async {
+                      await FirebaseUtils().getUserInfo().then((mp) async {
+                        await FirebaseUtils().addNotification(mp['first_name'] + " " + mp['last_name'], widget.person.uid);
+                      });
                     },
-                    icon: Icon(Icons.add, color: Colors.black,),
+                    icon: Icon(
+                      Icons.add_circle,
+                      size: 40,
+                      color: HotelAppTheme.buildLightTheme().primaryColor,
+                    ),
                   ),
                 ],
               ),
-          ],
-        ),
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Divider(),
         ],
       ),
     );

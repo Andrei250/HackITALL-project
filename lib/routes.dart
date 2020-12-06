@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hackitallproj/custom_drawer/home_drawer.dart';
 import 'package:hackitallproj/find_persons/search_person.dart';
 import 'package:hackitallproj/navigation_home_screen.dart';
+import 'package:hackitallproj/user/notifications.dart';
 import 'auth/login.dart';
 import 'custom_route.dart';
 import 'rooms.dart';
@@ -28,8 +29,11 @@ class Routing {
       case '/rooms':
         return CustomRoute(builder: (_) => Rooms(data: settings.arguments,));
         break;
-      case '/search_persons':
+      case '/search_people':
         return CustomRoute(builder: (_) => SearchPerson());
+        break;
+      case '/notifications':
+        return CustomRoute(builder: (_) => Notifications());
         break;
       default:
         return null;
