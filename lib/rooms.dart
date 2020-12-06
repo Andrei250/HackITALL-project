@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hackitallproj/choose_category.dart';
 import 'package:hackitallproj/games_list_view.dart';
 import 'package:hackitallproj/hotel_booking/info_screen.dart';
+import 'package:hackitallproj/models/category.dart';
 import 'design_course_app_theme.dart';
 import 'hotel_booking/hotel_app_theme.dart';
 import 'hotel_booking/model/hotel_list_data.dart';
@@ -10,7 +11,7 @@ import 'hotel_booking/model/hotel_list_data.dart';
 class Rooms extends StatefulWidget {
   Rooms({this.data});
 
-  HotelListData data;
+  Category data;
 
   @override
   _RoomsState createState() => _RoomsState();
@@ -173,7 +174,7 @@ class _RoomsState extends State<Rooms> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                widget.data.titleTxt,
+                widget.data.title,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -189,7 +190,7 @@ class _RoomsState extends State<Rooms> {
             child: Container(
               width: 50,
               height: 50,
-              child: Image.asset('assets/images/userImage.png'),
+              child: Image.asset(widget.data.imagePath),
             ),
           ),
         ],

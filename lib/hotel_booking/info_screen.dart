@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hackitallproj/hotel_booking/model/hotel_list_data.dart';
+import 'package:hackitallproj/models/category.dart';
 import 'design_course_app_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InfoScreen extends StatefulWidget {
   InfoScreen({this.data});
 
-  HotelListData data;
+  Category data;
 
   @override
   _InfoScreenState createState() => _InfoScreenState();
@@ -101,7 +102,7 @@ class _InfoScreenState extends State<InfoScreen> with TickerProviderStateMixin {
                             padding: const EdgeInsets.only(
                                 top: 32.0, left: 18, right: 16),
                             child: Text(
-                              widget.data.titleTxt,
+                              widget.data.title,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
@@ -142,7 +143,7 @@ class _InfoScreenState extends State<InfoScreen> with TickerProviderStateMixin {
                                 padding: const EdgeInsets.only(
                                     left: 16, right: 16, top: 8, bottom: 8),
                                 child: Text(
-                                  widget.data.titleTxt +
+                                  widget.data.title +
                                       'Lorem ipsum is simply dummy text of printing & typesetting industry, Lorem ipsum is simply dummy text of printing & typesetting industry.',
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
