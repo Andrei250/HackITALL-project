@@ -29,7 +29,7 @@ class Routing {
       case '/rooms':
         return CustomRoute(builder: (_) => Rooms(data: settings.arguments,));
         break;
-      case '/search_persons':
+      case '/search_people':
         return CustomRoute(builder: (_) => SearchPerson());
         break;
       case '/notifications':

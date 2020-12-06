@@ -3,9 +3,7 @@ import 'package:hackitallproj/hotel_booking/model/hotel_list_data.dart';
 import 'design_course_app_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class InfoScreen extends StatefulWidget {
-
   InfoScreen({this.data});
 
   HotelListData data;
@@ -14,14 +12,14 @@ class InfoScreen extends StatefulWidget {
   _InfoScreenState createState() => _InfoScreenState();
 }
 
-class _InfoScreenState extends State<InfoScreen>
-    with TickerProviderStateMixin {
+class _InfoScreenState extends State<InfoScreen> with TickerProviderStateMixin {
   final double infoHeight = 364.0;
   AnimationController animationController;
   Animation<double> animation;
   double opacity1 = 0.0;
   double opacity2 = 0.0;
   double opacity3 = 0.0;
+
   @override
   void initState() {
     animationController = AnimationController(
@@ -119,8 +117,7 @@ class _InfoScreenState extends State<InfoScreen>
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                              ],
+                              children: <Widget>[],
                             ),
                           ),
                           /*AnimatedOpacity(
@@ -144,8 +141,9 @@ class _InfoScreenState extends State<InfoScreen>
                               child: Padding(
                                 padding: const EdgeInsets.only(
                                     left: 16, right: 16, top: 8, bottom: 8),
-                                child: Text(widget.data.titleTxt +
-                                  'Lorem ipsum is simply dummy text of printing & typesetting industry, Lorem ipsum is simply dummy text of printing & typesetting industry.',
+                                child: Text(
+                                  widget.data.titleTxt +
+                                      'Lorem ipsum is simply dummy text of printing & typesetting industry, Lorem ipsum is simply dummy text of printing & typesetting industry.',
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w200,
@@ -172,14 +170,43 @@ class _InfoScreenState extends State<InfoScreen>
                                   const SizedBox(
                                     width: 16,
                                   ),
+                                  InkWell(
+                                    child: Container(
+                                      width: 48,
+                                      height: 48,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color:
+                                              DesignCourseAppTheme.nearlyWhite,
+                                          borderRadius: const BorderRadius.all(
+                                            Radius.circular(16.0),
+                                          ),
+                                          border: Border.all(
+                                              color: DesignCourseAppTheme.grey
+                                                  .withOpacity(0.2)),
+                                        ),
+                                        child: Icon(
+                                          Icons.add,
+                                          color:
+                                              DesignCourseAppTheme.nearlyBlue,
+                                          size: 28,
+                                        ),
+                                      ),
+                                    ),
+                                    onTap: () {
+                                      Navigator.of(context).pushNamed('/search_people');
+                                    },
+                                  ),
+                                  const SizedBox(
+                                    width: 16,
+                                  ),
                                   Expanded(
                                     child: InkWell(
                                       child: Container(
-
                                         height: 48,
-
                                         decoration: BoxDecoration(
-                                          color: DesignCourseAppTheme.nearlyBlue,
+                                          color:
+                                              DesignCourseAppTheme.nearlyBlue,
                                           borderRadius: const BorderRadius.all(
                                             Radius.circular(16.0),
                                           ),
@@ -203,9 +230,7 @@ class _InfoScreenState extends State<InfoScreen>
                                               color: DesignCourseAppTheme
                                                   .nearlyWhite,
                                             ),
-
                                           ),
-
                                         ),
                                       ),
                                       onTap: () {
@@ -326,4 +351,3 @@ _launchURL() async {
     throw 'Could not launch $url';
   }
 }
-
