@@ -40,8 +40,8 @@ class _HomeDrawerState extends State<HomeDrawer> {
       ),
       DrawerList(
         index: DrawerIndex.FeedBack,
-        labelName: 'FeedBack',
-        icon: Icon(Icons.help),
+        labelName: 'Notifications',
+        icon: Icon(Icons.notifications),
       ),
     ];
   }
