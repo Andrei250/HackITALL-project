@@ -9,7 +9,7 @@ class AppTheme {
   static const Color lightColor = Color.fromRGBO(255, 255, 255, 1);
   static const Color accentColor = Color.fromRGBO(114, 176, 29, 1);
   static const Color secondaryAccentColor = Color.fromRGBO(63, 125, 32, 1);
-  static const Color lightAccent = Color.fromRGBO(20, 120, 219, 1);
+  static const Color lightAccent = Color.fromRGBO(84, 211, 194, 1);
 //  static const Color lightAccent = Color.fromRGBO(0, 204, 150, 1);
   static const Color lightGradient = Color.fromRGBO(0, 179, 131, 1);
 
