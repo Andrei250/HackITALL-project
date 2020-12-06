@@ -23,35 +23,38 @@ class _NotificationCardState extends State<NotificationCard> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        color: Colors.grey,
         child: Column(
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(20.0),
+            Card(
+              color: Colors.white,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    widget.not.text,
-                    style: eTitle,
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  ListTile(
+                    leading: Icon(Icons.notifications),
+                    title: Text('Invitatie', style: TextStyle(color: Colors.black)),
+                    subtitle: Text(
+                      widget.not.text,
+                      style: eTitle,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      FlatButton(
+                        child: Text('Enter Meet', style: TextStyle(fontSize: 20.0),),
+                        color: Colors.blueAccent,
+                        textColor: Colors.white,
+                        onPressed: () {
+                          Navigator.pushNamed(context, widget.not.route, arguments: new HotelListData());
+                        },
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                FlatButton(
-                  child: Text('Enter Meet', style: TextStyle(fontSize: 20.0),),
-                  color: Colors.blueAccent,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    Navigator.pushNamed(context, widget.not.route, arguments: new HotelListData());
-                  },
-                ),
-              ],
             ),
           ],
         ),
