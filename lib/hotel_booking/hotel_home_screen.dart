@@ -423,7 +423,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      '10 rooms found',
+                      '4 rooms found',
                       style: TextStyle(
                         fontWeight: FontWeight.w100,
                         fontSize: 16,

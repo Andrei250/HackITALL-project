@@ -79,4 +79,28 @@ class FirebaseUtils {
         return mp;
       }).toList();
     }
+
+    Future getNotifications() async {
+      var snapshot = await _db.collection("notifications").get();
+
+      return snapshot.docs.map((doc) {
+        Map<String, dynamic> mp = new Map<String, dynamic>();
+        doc.data().forEach((key, value) {
+          mp[key] = value;
+        });
+
+        mp['uid'] = doc.id;
+        return mp;
+      }).toList();
+    }
+
+    Future<void> addNotification(String sender, String uid) async {
+      Map<String, dynamic> data = new Map<String, dynamic>();
+      data['sender'] = sender;
+      data['text'] = sender + " te-a invintat la o activitate comuna";
+      data['route'] = '/info_screen';
+      data['uid'] = uid;
+
+      await _db.collection("notifications").add(data);
+    }
 }
