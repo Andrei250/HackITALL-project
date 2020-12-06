@@ -20,6 +20,7 @@ class Category {
       lessonCount: 24,
       money: 25,
       rating: 4.3,
+
     ),
     Category(
       imagePath: 'assets/design_course/interFace2.png',

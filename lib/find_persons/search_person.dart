@@ -47,8 +47,12 @@ class _SearchPersonState extends State<SearchPerson> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.lightColor,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('Search person', style: TextStyle(color: Colors.black),),
+        title: Text(
+          'Invite people',
+          style: TextStyle(color: Colors.black, fontSize: 25),
+        ),
         centerTitle: true,
         backgroundColor: Colors.white,
         leading: IconButton(
