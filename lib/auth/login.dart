@@ -90,18 +90,13 @@ class _LoginState extends State<Login> {
           elevation: 0,
           bottom: _loading
               ? PreferredSize(
-            preferredSize: Size(double.infinity, 1.0),
-            child: LinearProgressIndicator(
-              valueColor:
-              AlwaysStoppedAnimation<Color>(HotelAppTheme.buildLightTheme().primaryColor),
-            ),
-          )
+                  preferredSize: Size(double.infinity, 1.0),
+                  child: LinearProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                        HotelAppTheme.buildLightTheme().primaryColor),
+                  ),
+                )
               : null,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
-            color: Colors.black,
-            onPressed: () {},
-          ),
         ),
         floatingActionButton: new RaisedButton(
           color: HotelAppTheme.buildLightTheme().primaryColor,
@@ -140,8 +135,8 @@ class _LoginState extends State<Login> {
                     errorSecondText = '';
                   });
                 } else {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      '/home_page', (route) => false);
+                  Navigator.of(context)
+                      .pushNamedAndRemoveUntil('/home_page', (route) => false);
                 }
               }
             }
@@ -159,13 +154,14 @@ class _LoginState extends State<Login> {
                     children: <Widget>[
                       // LogoRegister(),
                       SizedBox(
-                        height: 30.0,
-                      ),
-                      SizedBox(
-                        child: Text('Log in', style: eTitle),
-                      ),
-                      SizedBox(
                         height: 20.0,
+                      ),
+                      SizedBox(
+                        child: Text('Rooms',
+                            style: eTitleLogin),
+                      ),
+                      SizedBox(
+                        height: 50.0,
                       ),
                       SizedBox(
                         width: 320.0,
