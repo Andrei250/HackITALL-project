@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hackitallproj/models/Person.dart';
 
 import '../app_theme.dart';
+import '../hotel_booking/hotel_app_theme.dart';
 
 class PersonCard extends StatefulWidget {
   Person person;
@@ -19,6 +20,9 @@ class _PersonCardState extends State<PersonCard> {
     return Container(
       child: Column(
         children: <Widget>[
+          SizedBox(
+            height: 10,
+          ),
           Row(
             children: <Widget>[
               Padding(
@@ -38,14 +42,21 @@ class _PersonCardState extends State<PersonCard> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   IconButton(
-                    onPressed: () {
-                    },
-                    icon: Icon(Icons.add, color: Colors.black,),
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.add_circle,
+                      size: 40,
+                      color: HotelAppTheme.buildLightTheme().primaryColor,
+                    ),
                   ),
                 ],
               ),
-          ],
-        ),
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Divider(),
         ],
       ),
     );
