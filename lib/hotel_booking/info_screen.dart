@@ -7,7 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 class InfoScreen extends StatefulWidget {
   InfoScreen({this.data});
 
-  Category data;
+  HotelListData data;
 
   @override
   _InfoScreenState createState() => _InfoScreenState();
@@ -102,7 +102,7 @@ class _InfoScreenState extends State<InfoScreen> with TickerProviderStateMixin {
                             padding: const EdgeInsets.only(
                                 top: 32.0, left: 18, right: 16),
                             child: Text(
-                              widget.data.title,
+                              widget.data.titleTxt,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
@@ -143,8 +143,7 @@ class _InfoScreenState extends State<InfoScreen> with TickerProviderStateMixin {
                                 padding: const EdgeInsets.only(
                                     left: 16, right: 16, top: 8, bottom: 8),
                                 child: Text(
-                                  widget.data.title +
-                                      'Lorem ipsum is simply dummy text of printing & typesetting industry, Lorem ipsum is simply dummy text of printing & typesetting industry.',
+                                      'Welcome to ${widget.data.titleTxt}!',
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w200,

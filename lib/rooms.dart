@@ -11,7 +11,7 @@ import 'hotel_booking/model/hotel_list_data.dart';
 class Rooms extends StatefulWidget {
   Rooms({this.data});
 
-  Category data;
+  HotelListData data;
 
   @override
   _RoomsState createState() => _RoomsState();
@@ -174,7 +174,7 @@ class _RoomsState extends State<Rooms> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                widget.data.title,
+                widget.data.titleTxt,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -190,7 +190,7 @@ class _RoomsState extends State<Rooms> {
             child: Container(
               width: 50,
               height: 50,
-              child: Image.asset(widget.data.imagePath),
+              child: Image.asset('assets/images/userImage.png'),
             ),
           ),
         ],
