@@ -110,7 +110,7 @@ class _RoomsState extends State<Rooms> {
                     cursorColor: HotelAppTheme.buildLightTheme().primaryColor,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Office...',
+                      hintText: 'Search...',
                     ),
                   ),
                 ),

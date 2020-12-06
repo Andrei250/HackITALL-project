@@ -272,6 +272,12 @@ final eTitle = TextStyle(
   fontSize: 20.0,
   fontWeight: FontWeight.bold,
 );
+final eTitleLogin = TextStyle(
+  color: Colors.black,
+  fontFamily: 'WorkSans',
+  fontSize: 50.0,
+  fontWeight: FontWeight.bold,
+);
 final eGrey = TextStyle(
   color: Colors.grey[300],
   fontFamily: 'quicksand',
